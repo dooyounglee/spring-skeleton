@@ -19,7 +19,7 @@ public class ExampleController {
 	private final Logger logger = LoggerFactory.getLogger(ExampleController.class);
 
 	@RequestMapping(value = "/example1", method = RequestMethod.GET)
-	public ResponseEntity<ResponseDto> example1(@RequestBody RequestDto requestDto) {
+	public ResponseEntity<ResponseDto> example1(RequestDto requestDto) {
 		logger.debug("com.doo.skeleton.example.controller.ExampleController.example1.requestDto : {}", requestDto);
 		
 		ResponseDto responseDto = new ResponseDto();
@@ -29,4 +29,25 @@ public class ExampleController {
 				.body(responseDto);
 	}
 	
+	@RequestMapping(value = "/example2", method = RequestMethod.POST)
+	public ResponseEntity<ResponseDto> example2(@RequestBody RequestDto requestDto) {
+		logger.debug("com.doo.skeleton.example.controller.ExampleController.example2.requestDto : {}", requestDto);
+		
+		ResponseDto responseDto = new ResponseDto();
+		
+		return ResponseEntity
+				.status(HttpStatus.ACCEPTED)
+				.body(responseDto);
+	}
+	
+	@RequestMapping(value = "/example3", method = RequestMethod.PUT)
+	public ResponseEntity<ResponseDto> example3(@RequestBody RequestDto requestDto) {
+		logger.debug("com.doo.skeleton.example.controller.ExampleController.example3.requestDto : {}", requestDto);
+		
+		ResponseDto responseDto = new ResponseDto();
+		
+		return ResponseEntity
+				.status(HttpStatus.ACCEPTED)
+				.body(responseDto);
+	}
 }
