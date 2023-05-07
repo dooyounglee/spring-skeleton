@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.doo.skeleton.db.mybatis.Db2Mapper;
 // import com.doo.skeleton.db.mybatis.MariaMapper;
 import com.doo.skeleton.example.dto.db.fourth.MongoDto;
 import com.doo.skeleton.example.repository.first.MariaRepository;
@@ -19,14 +20,12 @@ public class DBService {
 	private final Logger logger = LoggerFactory.getLogger(DBService.class);
 
 	private final MariaRepository mariaRepository;
-	// private final MariaMapper mariaMapper;
 	private final MysqlRepository mysqlRepository;
-	// private final Db2Mapper db2Mapper;
+	private final Db2Mapper db2Mapper;
 	private final MongoRepository mongoRepository;
 	
 	public void maria() {
 		logger.debug("result: {}", mariaRepository.findAll());
-		// logger.debug("result: {}", mariaMapper.selectList("queryId", new HashMap<String, Object>()););
 	}
 	
 	public void mysql() {
@@ -34,7 +33,7 @@ public class DBService {
 	}
 	
 	public void db2() {
-		// logger.debug("result: {}", db2Mapper.selectList("com.doo.skeleton.example.db.mybatis.db2.queryId", new HashMap<String, Object>()));
+		logger.debug("result: {}", db2Mapper.selectList("com.doo.skeleton.example.db.mybatis.db2.queryId", null));
 	}
 	
 	public void mongo() {
