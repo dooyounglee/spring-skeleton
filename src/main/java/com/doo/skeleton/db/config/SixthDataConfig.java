@@ -13,42 +13,40 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.doo.skeleton.db.mybatis.Db2Mapper;
+import com.doo.skeleton.db.mybatis.OracleMapper;
 
 @Configuration
 @PropertySource({ "classpath:application.properties" })
 @MapperScan(
-		basePackageClasses = Db2Mapper.class,
-		sqlSessionFactoryRef="thirdSqlSessionFactory"
+		basePackageClasses = OracleMapper.class,
+		sqlSessionFactoryRef="sixthSqlSessionFactory"
 )
 @EnableTransactionManagement
-public class ThirdDataConfig {
+public class SixthDataConfig {
 
 	@Autowired
 	private Environment env;
 	
-	@Bean(name= "thirdDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource3")
-    public DataSource thirdDataSource() {
+	@Bean(name= "sixthDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource6")
+    public DataSource sixthDataSource() {
         return DataSourceBuilder.create().build();
     }
  
-    @Bean(name= "thirdSqlSessionFactory")
-    public SqlSessionFactory thirdSqlSessionFactory(@Qualifier("thirdDataSource") DataSource thirdDataSource, ApplicationContext applicationContext) throws Exception {
+    @Bean(name= "sixthSqlSessionFactory")
+    public SqlSessionFactory sixthSqlSessionFactory(@Qualifier("sixthDataSource") DataSource sixthDataSource, ApplicationContext applicationContext) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(thirdDataSource);
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources(env.getProperty("spring.datasource3.mapper.mapperLocations")));
+        sqlSessionFactoryBean.setDataSource(sixthDataSource);
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources(env.getProperty("spring.datasource6.mapper.mapperLocations")));
         return sqlSessionFactoryBean.getObject();
     }
  
     @Bean
-    @Primary
-    public SqlSessionTemplate thirdSqlSessionTemplate(@Qualifier("thirdSqlSessionFactory") SqlSessionFactory thirdSqlSessionFactory) throws Exception {
-        return new SqlSessionTemplate(thirdSqlSessionFactory);
+    public SqlSessionTemplate sixthSqlSessionTemplate(@Qualifier("sixthSqlSessionFactory") SqlSessionFactory sixthSqlSessionFactory) throws Exception {
+        return new SqlSessionTemplate(sixthSqlSessionFactory);
     }
 }

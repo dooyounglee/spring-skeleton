@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class Db2Mapper {
+public class OracleMapper {
 
 	private SqlSessionTemplate sqlSession;
 	
-	public Db2Mapper(@Qualifier("thirdSqlSessionTemplate") SqlSessionTemplate sqlSession) {
+	public OracleMapper(@Qualifier("sixthSqlSessionTemplate") SqlSessionTemplate sqlSession) {
 		this.sqlSession = sqlSession;
 	}
 	

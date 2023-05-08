@@ -27,6 +27,7 @@ public class DBController {
 		logger.debug("com.doo.skeleton.example.controller.DBController.maria.requestDto : {}", requestDto);
 
 		dbService.maria();
+		dbService.mariaMybatis();
 		
 		ResponseDto responseDto = new ResponseDto();
 		return ResponseEntity
@@ -75,6 +76,18 @@ public class DBController {
 		logger.debug("com.doo.skeleton.example.controller.DBController.mongoInsert.requestDto : {}", requestDto);
 
 		dbService.mongoInsert();
+		
+		ResponseDto responseDto = new ResponseDto();
+		return ResponseEntity
+				.status(HttpStatus.ACCEPTED)
+				.body(responseDto);
+	}
+	
+	@RequestMapping(value = "/oracle", method = RequestMethod.GET)
+	public ResponseEntity<ResponseDto> oracle(RequestDto requestDto) {
+		logger.debug("com.doo.skeleton.example.controller.DBController.oracle.requestDto : {}", requestDto);
+
+		dbService.oracleMybatis();
 		
 		ResponseDto responseDto = new ResponseDto();
 		return ResponseEntity
