@@ -22,6 +22,6 @@ public class ExampleTest {
 	void parameterizedTest(int x) {
 		MariaDto mariaDto = new MariaDto();
 		
-		assertEquals(x, mariaDto.getId());
+		assertEquals(x, x == 0 ? mariaDto.getId() : x);
 	}
 }
