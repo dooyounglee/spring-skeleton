@@ -3,29 +3,75 @@ package com.doo.skeleton.util;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.MethodDescriptor;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.MethodOrdererContext;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class CommonUtilTest {
 
-	@Test
+	@ParameterizedTest
 	@Order(1)
-	public void isNullTrue() {
-		Object[] arr = new Object[] {"", null};
+	@ValueSource(strings = {"", "  ", "\t", "\n"})
+	public void isNullStringsTrue(String x) {
 		
-		for (Object x : arr) {
-			assertTrue(CommonUtil.isNull(x));
-		}
+		assertTrue(CommonUtil.isNull(x));
+	}
+	
+	@ParameterizedTest
+	@Order(1)
+	@NullSource
+	public void isNullTrue(Object x) {
+		
+		assertTrue(CommonUtil.isNull(x));
+	}
+
+	@ParameterizedTest
+	@Order(2)
+	@ValueSource(strings = {"1"})
+	public void isNullStringsFalse(String x) {
+		
+		assertFalse(CommonUtil.isNull(x));
+	}
+	
+	@ParameterizedTest
+	@Order(2)
+	@ValueSource(longs = {0,1,2L})
+	public void isNullLongsFalse(long x) {
+		
+		assertFalse(CommonUtil.isNull(x));
+	}
+	
+	@ParameterizedTest
+	@Order(2)
+	@ValueSource(booleans = {true,false})
+	public void isNullBooleansFalse(boolean x) {
+		
+		assertFalse(CommonUtil.isNull(x));
 	}
 	
 	@Test
 	@Order(2)
-	public void isNullFalse() {
-		Object[] arr = new Object[] {"1", new Object(), new Object[] {}};
+	public void isNullObjectsFalse() {
+		Object[] arr = new Object[] {new Object(), new Object[] {}};
 		
 		for (Object x : arr) {
 			assertFalse(CommonUtil.isNull(x));
 		}
 	}
 	
+}
+
+class CustomOrder implements MethodOrderer {
+
+	@Override
+	public void orderMethods(MethodOrdererContext context) {
+		context.getMethodDescriptors().sort(
+				(MethodDescriptor m1, MethodDescriptor m2) ->
+				m2.getMethod().getName().compareToIgnoreCase(m1.getMethod().getName()));
+	}
 }
