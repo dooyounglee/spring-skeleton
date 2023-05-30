@@ -73,6 +73,14 @@ public class CommonUtilTest {
 		assertEquals("123456", CommonUtil.lpad("1234567", 6, "0"));
 	}
 	
+	@Test
+	@Order(4)
+	public void rpadTest() {
+		assertEquals("123***", CommonUtil.rpad("123", 6, "*"));
+		assertEquals("123456", CommonUtil.rpad("123456", 6, "#"));
+		assertEquals("123456", CommonUtil.rpad("1234567", 6, "@"));
+	}
+	
 }
 
 class CustomOrder implements MethodOrderer {

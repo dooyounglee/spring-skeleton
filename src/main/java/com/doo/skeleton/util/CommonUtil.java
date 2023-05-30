@@ -26,4 +26,13 @@ public class CommonUtil {
 		return str.substring(0, length);
 	}
 	
+	public static String rpad(String str, int length, String fill) {
+		int len = str.length();
+		if (str.length() < length) {
+			for (int i=0; i<length-len;i++) str = str + fill;
+			return str;
+		}
+		return str.substring(0, length);
+	}
+	
 }
