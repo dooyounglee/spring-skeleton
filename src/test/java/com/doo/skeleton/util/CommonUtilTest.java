@@ -1,5 +1,6 @@
 package com.doo.skeleton.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -62,6 +63,14 @@ public class CommonUtilTest {
 		for (Object x : arr) {
 			assertFalse(CommonUtil.isNull(x));
 		}
+	}
+	
+	@Test
+	@Order(3)
+	public void lpadTest() {
+		assertEquals("000123", CommonUtil.lpad("123", 6, "0"));
+		assertEquals("123456", CommonUtil.lpad("123456", 6, "0"));
+		assertEquals("123456", CommonUtil.lpad("1234567", 6, "0"));
 	}
 	
 }
