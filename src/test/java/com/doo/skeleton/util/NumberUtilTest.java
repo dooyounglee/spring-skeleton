@@ -72,4 +72,11 @@ public class NumberUtilTest {
 		assertEquals(NumberUtil.floor(123.456,  2), 123.45);
 		assertEquals(NumberUtil.floor(123.456,  3), 123.456);
 	}
+	
+	@Test
+	public void lpadTest() {
+		assertEquals("000123", NumberUtil.lpad(123, 6));
+		assertEquals("123456", NumberUtil.lpad(123456, 6));
+		assertEquals("123456", NumberUtil.lpad(1234567, 6));
+	}
 }

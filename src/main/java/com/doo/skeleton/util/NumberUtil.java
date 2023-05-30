@@ -13,4 +13,8 @@ public class NumberUtil {
 	public static double floor(double num, int digit) {
 		return Math.floor(num * Math.pow(10, digit)) / Math.pow(10, digit);
 	}
+	
+	public static String lpad(int num, int length) {
+		return CommonUtil.lpad(String.valueOf(num), length, "0");
+	}
 }
