@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.doo.skeleton.db.config.FirstDataConfig;
-import com.doo.skeleton.repository.first.example.MariaRepository;
 import com.doo.skeleton.repository.first.example.vo.MariaDto;
 
 @DataJpaTest

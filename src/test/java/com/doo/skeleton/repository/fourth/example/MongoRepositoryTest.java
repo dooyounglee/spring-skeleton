@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.doo.skeleton.repository.fourth.example.MongoRepository;
 import com.doo.skeleton.repository.fourth.example.vo.MongoDto;
 
 @SpringBootTest

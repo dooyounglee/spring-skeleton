@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.doo.skeleton.db.config.SecondDataConfig;
-import com.doo.skeleton.repository.second.example.MysqlRepository;
 import com.doo.skeleton.repository.second.example.vo.MysqlDto;
 
 @DataJpaTest
