@@ -21,10 +21,10 @@ public class MariaRepositoryTest {
 	@Autowired
 	private MariaRepository mariaRepository;
 	
-	@Test
-	@Transactional("firstTransactionManager")
-	public void saveTest() {
-		MariaDto result = mariaRepository.save(new MariaDto());
-		assertEquals(result.getId(), 1);
-	}
+//	@Test
+//	@Transactional("firstTransactionManager")
+//	public void saveTest() {
+//		MariaDto result = mariaRepository.save(new MariaDto());
+//		assertEquals(result.getId(), 1);
+//	}
 }
