@@ -1,4 +1,4 @@
-package com.doo.skeleton.example.dto.db.second;
+package com.doo.skeleton.repository.second.example.vo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

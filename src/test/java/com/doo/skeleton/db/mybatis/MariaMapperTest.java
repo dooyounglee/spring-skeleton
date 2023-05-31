@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.doo.skeleton.example.dto.db.first.MariaDto;
+import com.doo.skeleton.repository.first.example.vo.MariaDto;
 
 @SpringBootTest
 @TestInstance(Lifecycle.PER_CLASS)

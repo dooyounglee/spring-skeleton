@@ -13,7 +13,7 @@
 		 WHERE ID = #{id}
 	</delete>
 	
-	<select id="selectTest" parameterType="Map" resultType="com.doo.skeleton.example.dto.db.first.MariaDto">
+	<select id="selectTest" parameterType="Map" resultType="com.doo.skeleton.repository.first.example.vo.MariaDto">
 		SELECT ID
 		  FROM MARIADTO
 		 WHERE ID > #{prefix}

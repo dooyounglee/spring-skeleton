@@ -1,4 +1,4 @@
-package com.doo.skeleton.example.dto.db.third;
+package com.doo.skeleton.repository.sixth.example.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Db2Dto {
+public class OracleDto {
 
-	private String id;
+	private int id;
 }

@@ -13,7 +13,7 @@
 		 WHERE ID = #{id}
 	</delete>
 	
-	<select id="selectTest" parameterType="Map" resultType="com.doo.skeleton.example.dto.db.sixth.OracleDto">
+	<select id="selectTest" parameterType="Map" resultType="com.doo.skeleton.repository.sixth.example.vo.OracleDto">
 		SELECT ID
 		  FROM ORACLEDTO
 		 WHERE ID > #{prefix}

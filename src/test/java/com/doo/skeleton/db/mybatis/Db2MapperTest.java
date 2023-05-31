@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.doo.skeleton.example.dto.db.third.Db2Dto;
+import com.doo.skeleton.repository.third.example.vo.Db2Dto;
 
 @SpringBootTest
 @TestInstance(Lifecycle.PER_CLASS)

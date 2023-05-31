@@ -1,4 +1,4 @@
-package com.doo.skeleton.example.repository.fourth;
+package com.doo.skeleton.repository.fourth;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.doo.skeleton.example.dto.db.fourth.MongoDto;
+import com.doo.skeleton.repository.fourth.example.MongoRepository;
+import com.doo.skeleton.repository.fourth.example.vo.MongoDto;
 
 @SpringBootTest
 @AutoConfigureDataMongo

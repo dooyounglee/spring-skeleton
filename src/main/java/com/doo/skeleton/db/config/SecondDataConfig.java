@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 @PropertySource({ "classpath:application.properties" })
 @EnableJpaRepositories(
-		basePackages = "com.doo.skeleton.example.repository.second",
+		basePackages = { "com.doo.skeleton.repository.second" },
 		entityManagerFactoryRef = "secondEntityManager",
 		transactionManagerRef = "secondTransactionManager"
 )
@@ -33,7 +33,7 @@ public class SecondDataConfig {
 	public LocalContainerEntityManagerFactoryBean secondEntityManager() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource((javax.sql.DataSource) secondDataSource());
-		em.setPackagesToScan(new String[] { "com.doo.skeleton.example.dto.db.second" });
+		em.setPackagesToScan(new String[] { "com.doo.skeleton.repository.second" });
 		em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		
 		HashMap<String, Object> properties = new HashMap<String, Object>();

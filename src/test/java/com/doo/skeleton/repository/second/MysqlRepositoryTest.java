@@ -1,4 +1,4 @@
-package com.doo.skeleton.example.repository.first;
+package com.doo.skeleton.repository.second;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,21 +10,22 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.doo.skeleton.db.config.FirstDataConfig;
-import com.doo.skeleton.example.dto.db.first.MariaDto;
+import com.doo.skeleton.db.config.SecondDataConfig;
+import com.doo.skeleton.repository.second.example.MysqlRepository;
+import com.doo.skeleton.repository.second.example.vo.MysqlDto;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-@ImportAutoConfiguration(classes = FirstDataConfig.class)
-public class MariaRepositoryTest {
+@ImportAutoConfiguration(classes = SecondDataConfig.class)
+public class MysqlRepositoryTest {
 
 	@Autowired
-	private MariaRepository mariaRepository;
+	private MysqlRepository mysqlRepository;
 	
 	@Test
-	@Transactional("firstTransactionManager")
+	@Transactional("secondTransactionManager")
 	public void saveTest() {
-		MariaDto result = mariaRepository.save(new MariaDto());
+		MysqlDto result = mysqlRepository.save(new MysqlDto());
 		assertEquals(result.getId(), 1);
 	}
 }

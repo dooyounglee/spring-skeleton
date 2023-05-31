@@ -21,7 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 @PropertySource({ "classpath:application.properties" })
 @EnableJpaRepositories(
-		basePackages = "com.doo.skeleton.example.repository.first",
+		basePackages = { "com.doo.skeleton.repository.first" },
 		entityManagerFactoryRef = "firstEntityManager",
 		transactionManagerRef = "firstTransactionManager"
 )
@@ -35,7 +35,7 @@ public class FirstDataConfig {
 	public LocalContainerEntityManagerFactoryBean firstEntityManager() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource((javax.sql.DataSource) firstDataSource());
-		em.setPackagesToScan(new String[] { "com.doo.skeleton.example.dto.db.first" });
+		em.setPackagesToScan(new String[] { "com.doo.skeleton.repository.first" });
 		em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		
 		HashMap<String, Object> properties = new HashMap<String, Object>();

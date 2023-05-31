@@ -1,4 +1,4 @@
-package com.doo.skeleton.example.dto.db.fourth;
+package com.doo.skeleton.repository.fourth.example.vo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

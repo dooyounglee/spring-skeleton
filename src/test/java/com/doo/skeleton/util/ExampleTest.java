@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import com.doo.skeleton.example.dto.db.first.MariaDto;
+import com.doo.skeleton.repository.first.example.vo.MariaDto;
 
 public class ExampleTest {
 

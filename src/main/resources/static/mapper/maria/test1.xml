@@ -3,7 +3,7 @@
                         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.doo.skeleton.db.mybatis.MariaMapper">
 
-	<select id="queryId" parameterType="Map" resultType="com.doo.skeleton.example.dto.db.first.MariaDto">
+	<select id="queryId" parameterType="Map" resultType="com.doo.skeleton.repository.first.example.vo.MariaDto">
 		SELECT 1 AS ID
 		  FROM MARIADTO
 	</select>

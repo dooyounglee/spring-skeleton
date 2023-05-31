@@ -23,7 +23,7 @@ import com.mongodb.client.MongoClients;
 @Configuration
 @PropertySource({ "classpath:application.properties" })
 @EnableMongoRepositories(
-		basePackages = "com.doo.skeleton.example.repository.fourth",
+		basePackages = "com.doo.skeleton.repository.fourth",
 		mongoTemplateRef = "forthMongoTemplate"
 )
 public class FourthDataConfig {

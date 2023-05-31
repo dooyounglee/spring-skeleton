@@ -13,7 +13,7 @@
 		 WHERE COLUMN1 = #{id}
 	</delete>
 	
-	<select id="selectTest" parameterType="Map" resultType="com.doo.skeleton.example.dto.db.third.Db2Dto">
+	<select id="selectTest" parameterType="Map" resultType="com.doo.skeleton.repository.third.example.vo.Db2Dto">
 		SELECT COLUMN1
 		  FROM DB2DTO
 		 WHERE COLUMN1 LIKE #{prefix} || '%'

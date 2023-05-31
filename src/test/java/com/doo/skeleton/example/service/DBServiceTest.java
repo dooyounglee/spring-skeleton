@@ -11,10 +11,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import com.doo.skeleton.db.mybatis.Db2Mapper;
 import com.doo.skeleton.db.mybatis.MariaMapper;
 import com.doo.skeleton.db.mybatis.OracleMapper;
-import com.doo.skeleton.example.dto.db.fourth.MongoDto;
-import com.doo.skeleton.example.repository.first.MariaRepository;
-import com.doo.skeleton.example.repository.fourth.MongoRepository;
-import com.doo.skeleton.example.repository.second.MysqlRepository;
+import com.doo.skeleton.repository.first.example.MariaRepository;
+import com.doo.skeleton.repository.fourth.example.MongoRepository;
+import com.doo.skeleton.repository.fourth.example.vo.MongoDto;
+import com.doo.skeleton.repository.second.example.MysqlRepository;
 
 @SpringBootTest
 @AutoConfigureMockMvc
