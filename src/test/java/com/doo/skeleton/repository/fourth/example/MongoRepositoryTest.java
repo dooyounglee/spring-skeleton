@@ -1,4 +1,4 @@
-package com.doo.skeleton.repository.fourth;
+package com.doo.skeleton.repository.fourth.example;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
