@@ -32,7 +32,7 @@ public class MessageServiceTest {
 		// given
 		List<Message> messageList = new ArrayList<>();
 		messageList.add(Message.builder()
-				.id("XX-0001")
+				.key("XX-0001")
 				.content("XX-테스트0001")
 				.build());
 		
@@ -52,7 +52,7 @@ public class MessageServiceTest {
 		// given
 		List<Message> messageList = new ArrayList<>();
 		messageList.add(Message.builder()
-				.id("XX-0001")
+				.key("XX-0001")
 				.content("XX-테스트0001")
 				.build());
 		MessageDto requestDto = new MessageDto();
@@ -73,7 +73,7 @@ public class MessageServiceTest {
 		
 		// given
 		Message message = Message.builder()
-				.id("XX-0001")
+				.key("XX-0001")
 				.content("XX-테스트0001")
 				.build();
 		MessageDto requestDto = new MessageDto();
