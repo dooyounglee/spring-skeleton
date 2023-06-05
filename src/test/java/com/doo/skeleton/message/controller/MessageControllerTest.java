@@ -44,8 +44,8 @@ public class MessageControllerTest {
 		// given
 		List<Message> messageList = new ArrayList<>();
 		messageList.add(Message.builder()
-				.key("XX-0001")
-				.content("XX-테스트0001")
+				.messageCd("XX-0001")
+				.messageCn("XX-테스트0001")
 				.build());
 		
 		// when
@@ -57,8 +57,8 @@ public class MessageControllerTest {
 		.andDo(print())
 		.andExpect(status().isOk())
 		.andExpect(jsonPath("$.messageList.length()", is(1)))
-		.andExpect(jsonPath("$.messageList[0].id", is("XX-0001")))
-		.andExpect(jsonPath("$.messageList[0].content", is("XX-테스트0001")));
+		.andExpect(jsonPath("$.messageList[0].messageCd", is("XX-0001")))
+		.andExpect(jsonPath("$.messageList[0].messageCn", is("XX-테스트0001")));
 	}
 	
 	@Test
@@ -67,8 +67,8 @@ public class MessageControllerTest {
 		// given
 		List<Message> messageList = new ArrayList<>();
 		messageList.add(Message.builder()
-				.key("XX-0001")
-				.content("XX-테스트0001")
+				.messageCd("XX-0001")
+				.messageCn("XX-테스트0001")
 				.build());
 		MessageDto requestDto = new MessageDto();
 		requestDto.setMessageList(messageList);
@@ -83,8 +83,8 @@ public class MessageControllerTest {
 		.andDo(print())
 		.andExpect(status().isCreated())
 		.andExpect(jsonPath("$.messageList.length()", is(1)))
-		.andExpect(jsonPath("$.messageList[0].id", is("XX-0001")))
-		.andExpect(jsonPath("$.messageList[0].content", is("XX-테스트0001")));
+		.andExpect(jsonPath("$.messageList[0].messageCd", is("XX-0001")))
+		.andExpect(jsonPath("$.messageList[0].messageCn", is("XX-테스트0001")));
 	}
 	
 	@Test
@@ -92,8 +92,8 @@ public class MessageControllerTest {
 		
 		// given
 		Message message = Message.builder()
-				.key("XX-0001")
-				.content("XX-테스트0001")
+				.messageCd("XX-0001")
+				.messageCn("XX-테스트0001")
 				.build();
 		MessageDto requestDto = new MessageDto();
 		requestDto.setMessage(message);
@@ -107,8 +107,8 @@ public class MessageControllerTest {
 				.contentType(MediaType.APPLICATION_JSON))
 		.andDo(print())
 		.andExpect(status().isOk())
-		.andExpect(jsonPath("$.message.id", is("XX-0001")))
-		.andExpect(jsonPath("$.message.content", is("XX-테스트0001")));
+		.andExpect(jsonPath("$.message.messageCd", is("XX-0001")))
+		.andExpect(jsonPath("$.message.messageCn", is("XX-테스트0001")));
 	}
 	
 	@Test

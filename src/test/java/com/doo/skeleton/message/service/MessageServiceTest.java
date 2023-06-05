@@ -32,8 +32,8 @@ public class MessageServiceTest {
 		// given
 		List<Message> messageList = new ArrayList<>();
 		messageList.add(Message.builder()
-				.key("XX-0001")
-				.content("XX-테스트0001")
+				.messageCd("XX-0001")
+				.messageCn("XX-테스트0001")
 				.build());
 		
 		// when
@@ -42,8 +42,8 @@ public class MessageServiceTest {
 		// then
 		List<Message> result = messageService.select();
 		assertEquals(result.size(), 1);
-		assertEquals(result.get(0).getId(), "XX-0001");
-		assertEquals(result.get(0).getContent(), "XX-테스트0001");
+		assertEquals(result.get(0).getMessageCd(), "XX-0001");
+		assertEquals(result.get(0).getMessageCn(), "XX-테스트0001");
 	}
 	
 	@Test
@@ -52,8 +52,8 @@ public class MessageServiceTest {
 		// given
 		List<Message> messageList = new ArrayList<>();
 		messageList.add(Message.builder()
-				.key("XX-0001")
-				.content("XX-테스트0001")
+				.messageCd("XX-0001")
+				.messageCn("XX-테스트0001")
 				.build());
 		MessageDto requestDto = new MessageDto();
 		requestDto.setMessageList(messageList);
@@ -64,8 +64,8 @@ public class MessageServiceTest {
 		// then
 		List<Message> result = messageService.insert(requestDto);
 		assertEquals(result.size(), 1);
-		assertEquals(result.get(0).getId(), "XX-0001");
-		assertEquals(result.get(0).getContent(), "XX-테스트0001");
+		assertEquals(result.get(0).getMessageCd(), "XX-0001");
+		assertEquals(result.get(0).getMessageCn(), "XX-테스트0001");
 	}
 	
 	@Test
@@ -73,8 +73,8 @@ public class MessageServiceTest {
 		
 		// given
 		Message message = Message.builder()
-				.key("XX-0001")
-				.content("XX-테스트0001")
+				.messageCd("XX-0001")
+				.messageCn("XX-테스트0001")
 				.build();
 		MessageDto requestDto = new MessageDto();
 		requestDto.setMessage(message);
@@ -84,7 +84,7 @@ public class MessageServiceTest {
 		
 		// then
 		Message result = messageService.update(requestDto);
-		assertEquals(result.getId(), "XX-0001");
-		assertEquals(result.getContent(), "XX-테스트0001");
+		assertEquals(result.getMessageCd(), "XX-0001");
+		assertEquals(result.getMessageCn(), "XX-테스트0001");
 	}
 }
