@@ -1,4 +1,4 @@
-package com.doo.skeleton.config;
+package com.doo.skeleton.config.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
