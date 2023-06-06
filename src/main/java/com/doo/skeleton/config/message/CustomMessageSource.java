@@ -32,10 +32,10 @@ public class CustomMessageSource extends AbstractMessageSource {
 		if (messageFormat == null) {
 			Optional<Message> oMsgMap = messageRepository.findById(code);
 			if (oMsgMap.isPresent()) {
-				Message message = oMsgMap.get();
-				return createMessageFormat(message.getMessageCn(), locale);
+				messageMap.put(code, createMessageFormat(oMsgMap.get().getMessageCn(), locale));
+				return messageMap.get(code);
 			} else {
-				return null;
+				return createMessageFormat(code, locale);
 			}
 		} else {
 			return messageMap.get(code);
