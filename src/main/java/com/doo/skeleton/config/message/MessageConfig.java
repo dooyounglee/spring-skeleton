@@ -22,7 +22,7 @@ public class MessageConfig {
 	@Bean
 	public MessageSource messageSource(){
 		
-		Locale.setDefault(Locale.KOREAN); // 제공하지 않는 언어로 들어왔을 때 처리
+		Locale.setDefault(Locale.ROOT); // 제공하지 않는 언어로 들어왔을 때 처리
 		
 	    ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 	    messageSource.setBasenames(
