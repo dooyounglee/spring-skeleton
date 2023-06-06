@@ -8,6 +8,8 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.doo.skeleton.config.exception.BusinessException;
+
 @SpringBootTest
 public class BusinessExceptionTest {
 

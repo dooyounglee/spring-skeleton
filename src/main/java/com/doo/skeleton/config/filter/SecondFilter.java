@@ -1,4 +1,4 @@
-package com.doo.skeleton.filter;
+package com.doo.skeleton.config.filter;
 
 import java.io.IOException;
 

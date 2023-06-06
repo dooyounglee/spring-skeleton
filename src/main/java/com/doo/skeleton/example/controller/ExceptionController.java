@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.doo.skeleton.config.exception.BusinessException;
 import com.doo.skeleton.example.dto.RequestDto;
 import com.doo.skeleton.example.dto.ResponseDto;
-import com.doo.skeleton.exception.BusinessException;
 
 @RestController
 @RequestMapping("/api/v1/example/exception")

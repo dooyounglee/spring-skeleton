@@ -1,4 +1,4 @@
-package com.doo.skeleton.exception;
+package com.doo.skeleton.config.exception;
 
 import java.util.Locale;
 
