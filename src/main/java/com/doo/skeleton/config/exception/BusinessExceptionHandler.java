@@ -15,6 +15,7 @@ public class BusinessExceptionHandler {
 		e.printStackTrace();
 		
 		e.setErrorCode(-100);
+		e.setMessage(MessageUtil.getMessageDB(e.getMessageCode(), null, null));
 		
 		return ResponseEntity
 				.status(HttpStatus.EXPECTATION_FAILED)
@@ -27,6 +28,7 @@ public class BusinessExceptionHandler {
 		
 		BusinessException be = new BusinessException("CM-0001");
 		be.setErrorCode(-1);
+		be.setMessage("서버에 문제가 발생했습니다. 관리자에게 문의 하세요.");
 		
 		return ResponseEntity
 				.status(HttpStatus.INTERNAL_SERVER_ERROR)
@@ -39,7 +41,7 @@ public class BusinessExceptionHandler {
 		
 		BusinessException be = new BusinessException("CM-0001");
 		be.setErrorCode(-1);
-		be.setMessage(MessageUtil.getMessage("CM-0001", null, null));
+		be.setMessage(MessageUtil.getMessageDB("CM-0001", null, null));
 		
 		return ResponseEntity
 				.status(HttpStatus.INTERNAL_SERVER_ERROR)
