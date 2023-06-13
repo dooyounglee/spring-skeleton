@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="LOG_PATH" value="./logs"/>
+    <property name="pattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] [%logger:%line] %msg%n"/>
 
     <!-- Appenders -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -8,7 +9,25 @@
             <level>INFO</level>
         </filter>
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="console1" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="console2" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+        <encoder>
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
 
@@ -23,7 +42,7 @@
             <maxHistory>30</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+            <pattern>${pattern}</pattern>
         </encoder>
     </appender>
 
@@ -33,4 +52,15 @@
         <appender-ref ref="console"/>
         <appender-ref ref="INFO_LOG"/>
     </root>
+    
+    <logger name="com.doo.skeleton" level="DEBUG" additivity="true">
+    	<appender-ref ref="console1"/>
+    	<appender-ref ref="INFO_LOG"/>
+    </logger>
+    
+    <logger name="org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl" level="TRACE" additivity="true">
+    	<appender-ref ref="console2"/>
+    	<appender-ref ref="INFO_LOG"/>
+    </logger>
+    
 </configuration>
