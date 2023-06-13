@@ -28,6 +28,10 @@ public class OracleMapper {
 		return sqlSession.insert(queryId, param);
 	}
 	
+	public Integer update(String queryId, Object param) {
+		return sqlSession.update(queryId, param);
+	}
+	
 	public Integer delete(String queryId, Object param) {
 		return sqlSession.delete(queryId, param);
 	}
