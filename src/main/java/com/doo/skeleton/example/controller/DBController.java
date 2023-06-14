@@ -88,4 +88,15 @@ public class DBController {
 		
 		return responseDto;
 	}
+	
+	@RequestMapping(value = "/transaction", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public ResponseDto transaction(RequestDto requestDto) {
+		logger.debug("com.doo.skeleton.example.controller.DBController.transaction.requestDto : {}", requestDto);
+		ResponseDto responseDto = new ResponseDto();
+
+		dbService.transaction();
+		
+		return responseDto;
+	}
 }

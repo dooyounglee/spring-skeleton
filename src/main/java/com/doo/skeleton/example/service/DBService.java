@@ -7,15 +7,20 @@ import org.springframework.stereotype.Service;
 import com.doo.skeleton.db.mybatis.Db2Mapper;
 import com.doo.skeleton.db.mybatis.MariaMapper;
 import com.doo.skeleton.db.mybatis.OracleMapper;
+import com.doo.skeleton.example.dto.RequestDto;
 import com.doo.skeleton.repository.first.example.MariaRepository;
+import com.doo.skeleton.repository.first.message.MessageRepository;
+import com.doo.skeleton.repository.first.message.vo.Message;
 import com.doo.skeleton.repository.fourth.example.MongoRepository;
 import com.doo.skeleton.repository.fourth.example.vo.MongoDto;
 import com.doo.skeleton.repository.second.example.MysqlRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class DBService {
 	
 	private final Logger logger = LoggerFactory.getLogger(DBService.class);
@@ -26,6 +31,7 @@ public class DBService {
 	private final Db2Mapper db2Mapper;
 	private final MongoRepository mongoRepository;
 	private final OracleMapper oracleMapper;
+	private final MessageRepository messageRepository;
 	
 	public void maria() {
 		logger.debug("result: {}", mariaRepository.findAll());
@@ -53,5 +59,10 @@ public class DBService {
 	
 	public void oracleMybatis() {
 		logger.debug("result: {}", oracleMapper.selectList("com.doo.skeleton.db.mybatis.OracleMapper.queryId", null));
+	}
+
+	public void transaction() {
+		messageRepository.save(new Message("CM-0099","그만해","ko_KR","N"));
+		mariaMapper.insert("com.doo.skeleton.db.mybatis.MariaMapper.insert", null);
 	}
 }
