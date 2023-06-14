@@ -126,6 +126,6 @@ public class MessageControllerTest {
 				.content(objectMapper.writeValueAsString(requestDto))
 				.contentType(MediaType.APPLICATION_JSON))
 		.andDo(print())
-		.andExpect(status().isAccepted());
+		.andExpect(status().isNoContent());
 	}
 }

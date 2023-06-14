@@ -62,7 +62,7 @@ public class ExampleController {
 		return responseDto;
 	}
 	
-	@ResponseStatus(HttpStatus.ACCEPTED)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@RequestMapping(value = "/example1", method = RequestMethod.DELETE)
 	public ResponseDto deleteExample1(@RequestBody RequestDto requestDto) {
 		logger.debug("com.doo.skeleton.example.controller.ExampleController.deleteExample1.requestDto : {}", requestDto);

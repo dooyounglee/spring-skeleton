@@ -3,10 +3,10 @@ package com.doo.skeleton.example.controller;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -127,7 +127,7 @@ public class ExampleControllerTest {
 				.content(objectMapper.writeValueAsString(new RequestDto()))
 				.contentType(MediaType.APPLICATION_JSON))
 		.andDo(print())
-		.andExpect(status().isAccepted())
+		.andExpect(status().isNoContent())
 		// .andExpect(content().string(containsString("1")));
 		.andExpect(jsonPath("$.id", IsNull.nullValue()))
 		.andExpect(jsonPath("$.age", is(0)))
