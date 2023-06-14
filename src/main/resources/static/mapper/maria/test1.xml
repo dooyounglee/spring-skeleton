@@ -8,4 +8,21 @@
 		  FROM MARIADTO
 	</select>
 	
+	<insert id="insert" parameterType="Map">
+		INSERT INTO MARIADTO
+		       (ID)
+		VALUES ('CM-0099')
+	</insert>
+	
+	<update id="update" parameterType="Map">
+		UPDATE MARIADTO
+		   SET COL = 'VALUE'
+		 WHERE ID = 'CM-0099'
+	</update>
+	
+	<delete id="delete" parameterType="Map">
+		DELETE FROM MARIADTO
+		 WHERE ID = 'CM-0099'
+	</delete>
+	
 </mapper>

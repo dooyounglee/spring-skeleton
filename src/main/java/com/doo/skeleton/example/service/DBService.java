@@ -65,4 +65,12 @@ public class DBService {
 		messageRepository.save(new Message("CM-0099","그만해","ko_KR","N"));
 		mariaMapper.insert("com.doo.skeleton.db.mybatis.MariaMapper.insert", null);
 	}
+	
+	public void example(RequestDto requestDto) {
+		mariaMapper.select("com.doo.skeleton.db.mybatis.MariaMapper.select", requestDto);
+		mariaMapper.selectList("com.doo.skeleton.db.mybatis.MariaMapper.selectList", requestDto);
+		mariaMapper.insert("com.doo.skeleton.db.mybatis.MariaMapper.insert", requestDto);
+		mariaMapper.update("com.doo.skeleton.db.mybatis.MariaMapper.update", requestDto);
+		mariaMapper.delete("com.doo.skeleton.db.mybatis.MariaMapper.delete", requestDto);
+	}
 }
