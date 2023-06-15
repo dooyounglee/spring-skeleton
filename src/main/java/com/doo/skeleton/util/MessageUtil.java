@@ -5,12 +5,16 @@ import java.util.Locale;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 
+import com.doo.skeleton.config.message.CustomMessageSource;
+
 public class MessageUtil {
 
+	private final static MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSource");
+	private final static CustomMessageSource messageSourceDB = (CustomMessageSource) BeanUtil.getBean("messageSourceDB");
+	
 	private static Locale defulatLocale = Locale.KOREAN;
 	
 	public static String getMessage(String messageCode) {
-		MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSource");
 		
 		try {
 			return messageSource.getMessage(messageCode, null, defulatLocale);
@@ -20,7 +24,6 @@ public class MessageUtil {
 	}
 	
 	public static String getMessage(String messageCode, Object[] args) {
-		MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSource");
 		
 		try {
 			return messageSource.getMessage(messageCode, args, defulatLocale);
@@ -31,7 +34,6 @@ public class MessageUtil {
 	
 	public static String getMessage(String messageCode, Object[] args, Locale locale) {
 		if (locale == null) locale = defulatLocale;
-		MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSource");
 		
 		try {
 			return messageSource.getMessage(messageCode, args, locale);
@@ -41,18 +43,15 @@ public class MessageUtil {
 	}
 	
 	public static String getMessageDB(String messageCode) {
-		MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSourceDB");
-		return messageSource.getMessage(messageCode, null, defulatLocale);
+		return messageSourceDB.getMessage(messageCode, null, defulatLocale);
 	}
 	
 	public static String getMessageDB(String messageCode, Object[] args) {
-		MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSourceDB");
-		return messageSource.getMessage(messageCode, args, defulatLocale);
+		return messageSourceDB.getMessage(messageCode, args, defulatLocale);
 	}
 	
 	public static String getMessageDB(String messageCode, Object[] args, Locale locale) {
 		if (locale == null) locale = defulatLocale;
-		MessageSource messageSource = (MessageSource) BeanUtil.getBean("messageSourceDB");
-		return messageSource.getMessage(messageCode, args, locale);
+		return messageSourceDB.getMessage(messageCode, args, locale);
 	}
 }
