@@ -54,4 +54,8 @@ public class MessageUtil {
 		if (locale == null) locale = defulatLocale;
 		return messageSourceDB.getMessage(messageCode, args, locale);
 	}
+	
+	public static void removeMessageDB(String messageCode) {
+		messageSourceDB.removeCode(messageCode, defulatLocale);
+	}
 }

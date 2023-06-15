@@ -50,4 +50,8 @@ public class CustomMessageSource extends AbstractMessageSource {
 			this.messageMap.put(message.getMessageCd(), createMessageFormat(message.getMessageCn(), Locale.KOREAN)));
 		
 	}
+	
+	public void removeCode(String code, Locale locale) {
+		this.messageMap.remove(code);
+	}
 }

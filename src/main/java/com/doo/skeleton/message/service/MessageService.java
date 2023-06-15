@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.doo.skeleton.message.dto.MessageDto;
 import com.doo.skeleton.repository.first.message.MessageRepository;
 import com.doo.skeleton.repository.first.message.vo.Message;
+import com.doo.skeleton.util.MessageUtil;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,10 +26,12 @@ public class MessageService {
 	}
 	
 	public Message update(MessageDto messageDto) {
+		MessageUtil.removeMessageDB(messageDto.getMessage().getMessageCd());
 		return messageRepository.save(messageDto.getMessage());
 	}
 	
 	public void delete(MessageDto messageDto) {
+		MessageUtil.removeMessageDB(messageDto.getId());
 		messageRepository.deleteById(messageDto.getId());
 	}
 
