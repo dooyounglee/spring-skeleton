@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.doo.skeleton.example.dto.FirstDto;
 import com.doo.skeleton.example.dto.SecondDto;
+import com.doo.skeleton.example.dto.ThirdDto;
 import com.doo.skeleton.example.service.DBService;
 
 import lombok.RequiredArgsConstructor;
@@ -37,5 +38,13 @@ public class DBController {
 		logger.debug("com.doo.skeleton.example.controller.DBController.second.secondDto : {}", secondDto);
 		
 		return dbService.second();
+	}
+	
+	@RequestMapping(value = "/third", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public Flux<ThirdDto> third(ThirdDto thirdDto) {
+		logger.debug("com.doo.skeleton.example.controller.DBController.third.thirdDto : {}", thirdDto);
+		
+		return dbService.third();
 	}
 }
