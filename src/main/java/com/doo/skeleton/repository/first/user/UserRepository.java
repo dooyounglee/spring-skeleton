@@ -1,0 +1,12 @@
+package com.doo.skeleton.repository.first.user;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.doo.skeleton.repository.first.user.vo.User;
+
+public interface UserRepository extends JpaRepository<User, Long>{
+
+	Optional<User> findByUserName(String userName);
+}
